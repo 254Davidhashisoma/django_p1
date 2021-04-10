@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%load bootstrap4%}
+{% load ratings %}
+{%block content%}
+<div class="container" style="font-family: 'Jost', sans-serif;">
+    <div class="row mt-5" style="padding-top: 80px;">
+        <div class="col-sm-6 m-auto card">
+            <br>
+            <div>
+             
+                <form method="POST" enctype="multipart/form-data" class="p-5">
+                  {%csrf_token%} 
+                    <fieldset class="form-group">
+                        <legend class="border-bottom pt-4 mb-4">Profile info</legend>
+                        {%bootstrap_form prof_form%}
+                        {%bootstrap_form user_form%}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

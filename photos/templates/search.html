@@ -1,0 +1,40 @@
+<div class="class" style="font-family: 'Jost', sans-serif;">
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                {% if results %}
+                <h5 class="text-center">Found {{ results|length }} post{{ results|pluralize }}</h5>
+                {% else %}
+                <h5 class="text-center"> Found 0 user with username <strong>{{message}}</strong></h5>
+
+                <a class="d-block mx-auto" href="/">
+                    <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
+                </a>
+                {% endif %}
+                <hr>
+
+            </div>
+
+        </div>
+
+        {% if results %}
+        {% for res in results %}
+
+        <div class="row pt-3">
+            <div class="col-md-8">
+                <img src="{{res.postcreenshot.url}}" alt="oops cant display" height="300px">
+            </div>
+            <div class="col-md-4">
+                <span><strong><a href="{{res.projecturl}}">{{res.description}}</a></strong></span>
+            </div>
+        </div>
+        {%endfor%}
+        {%endif%}
+
+    </div>
+
+
+    {% endblock %}
+</div>

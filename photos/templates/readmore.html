@@ -1,0 +1,54 @@
+<div class="class" style="font-family: 'Jost', sans-serif;">
+    {% extends 'base.html'%}
+    {% load ratings %}
+    {%block content%}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm">
+                <div class="view view-cascade overlay">
+                    <img class="img-fluid" src="{{post.postcreenshot.url}}" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm">
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>{{post.title}}</strong></h4>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text py-2">Description</h6>
+                    <!-- Text -->
+                    <p class="card-text">{{post.description}}
+                    </p>
+                    <a href="{{post.projecturl}}">
+                        <button class="btn btn-primary">Check out</button>
+                    </a>
+                    <h5 style="padding-left: 120%;" class="text-secondary">By: {{post.user}}</h5>
+                </div>
+            </div>
+        </div>
+        <iv class="ratings">
+            <h3 class="pt-3 h2">Rate</h3>
+            <div class="row">
+                <div class="col-sm">
+                    <h4>Usability</h4>
+                    {% ratings post %}
+                    <h4>Usability</h4>
+                </div>
+                <div class="col-sm">
+                    <h4>Design</h4>
+                    {% ratings post %}
+                </div>
+                <div class="col-sm">
+                    <h4>Content</h4>
+                    {% ratings post %}
+                </div>
+            </div>
+            <a href="{% url "rate" post.id %}" class="h1">Review</a>
+    </div>
+    <div>
+        {%endblock%}
+    </div>
