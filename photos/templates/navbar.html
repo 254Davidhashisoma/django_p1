@@ -1,52 +1,36 @@
-<!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">HashWebinnar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{%url "home" %}">Home
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Account</a>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
-         <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-          <a class="dropdown-item" href="{%url "login"%}">Login</a>
-          <a class="dropdown-item" href="{%url "profile" user.id %}">Profile</a> 
-          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="{% url 'photos' %}">MY GALLERY</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'photos' %}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+  
+      </ul>
+      <!-- Links -->
+  
+      <form class="form-inline" action = "{% url 'search_results' %}">
+        <div class="md-form form-sm my-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="category">
+          <button class="btn btn-outline-white btn-sm my-0" type="submit">Search</button>
         </div>
-       </li>
-      </ul> 
-                         <div>
-            
-              <a class="navbar-brand" href="{% url 'post' %}">Submit Project</a>
-            
-          </div>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="{%url "home" %}">Add project</a>
-            </li> 
-        </ul>
-        </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                    aria-labelledby="navbarDropdownMenuLink-333">
-                    
-                    <a class="dropdown-item" href="{% url "profile" user.id %}">Profile</a>
-                   
-                </div>
-            </li>
-        </ul>
+      </form>
     </div>
-</nav>
-<!--/.Navbar -->
+    <!-- Collapsible content -->
+  
+  </nav>
+  <!--/.Navbar-->
