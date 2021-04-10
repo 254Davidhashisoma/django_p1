@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'cloudinary',
+    'bootstrap3',
     'photos',
     'django.contrib.admin',
     'django.contrib.auth',
