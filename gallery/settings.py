@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from pathlib import Path
+import os
+from decouple import config,Csv
 
 import cloudinary
 import cloudinary.uploader
@@ -24,12 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+nyv=j$7x0vkvgu*j@&m4reri%wg_mf9y3spalg73e4*m+!34q'
-
+SECRET_KEY='django-insecure-+nyv=j$7x0vkvgu*j@&m4reri%wg_mf9y3spalg73e4*m+!34q'
+# SECRET_KEY= os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +40,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'cloudinary',
     'bootstrap3',
+    'decouple',
     'photos',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -80,12 +84,24 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('photos'),
+        'USER': os.environ.get('postgres'),
+        # 'PASSWORD': os.environ.get('PASSWORD'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gallery',
+#         'USER': 'postgres',
+#     }
+# }
 
 
 # Password validation
@@ -130,3 +146,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+cloudinary.config(
+    CLOUD_NAME= os.environ.get('CLOUD_NAME'),
+    API_KEY= os.environ.get('API_KEY'),
+    API_SECRET= os.environ.get('API_SECRET'),
+    SECURE= True
+)
