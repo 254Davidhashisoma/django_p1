@@ -39,9 +39,9 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'cloudinary',
+    'photos.apps.PhotosConfig',
     'bootstrap3',
     'decouple',
-    'photos',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -147,9 +147,18 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-cloudinary.config(
-    CLOUD_NAME= os.environ.get('CLOUD_NAME'),
-    API_KEY= os.environ.get('API_KEY'),
-    API_SECRET= os.environ.get('API_SECRET'),
-    SECURE= True
-)
+# cloudinary.config(
+#     CLOUD_NAME= os.environ.get('CLOUD_NAME'),
+#     API_KEY= os.environ.get('API_KEY'),
+#     API_SECRET= os.environ.get('API_SECRET'),
+#     SECURE= True
+# )
+
+
+CLOUDINARY_STORAGE ={
+    'CLOUD_NAME':"ashisoma",
+    'API_KEY':"732674299667284",
+    'API_SECRET':"7mQoDNV8VE_XePPSvGDYvjTFkW4"
+}
+
+DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
