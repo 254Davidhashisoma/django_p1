@@ -40,7 +40,7 @@ Create a .env file and paste paste the following filling where appropriate:
 
 * SECRET_KEY='Generate one that suits you'
 * DEBUG=True
-* DB_NAME='gallery'
+* DB_NAME='photos'
 * DB_USER='<your database name>'
 * DB_PASSWORD='<password to your database>'
 * DB_HOST='127.0.0.1'
