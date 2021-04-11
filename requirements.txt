@@ -2,10 +2,14 @@ asgiref==3.3.4
 certifi==2020.12.5
 chardet==4.0.0
 cloudinary==1.25.0
+dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.4
 Django==3.2
 django-bootstrap3==15.0.0
+django-cloudinary-storage==0.3.0
+django-heroku==0.3.1
 django-pipeline==2.0.6
+gunicorn==20.1.0
 idna==2.10
 importlib-metadata==2.1.1
 Pillow==8.2.0
@@ -18,4 +22,5 @@ six==1.15.0
 sqlparse==0.4.1
 typing-extensions==3.7.4.3
 urllib3==1.26.4
+whitenoise==5.2.0
 zipp==3.4.1
